@@ -4,6 +4,3 @@
 
 ## Demo
 
-
-https://user-images.githubusercontent.com/61332730/218285429-3dde1cfd-6b25-4921-8506-0e4a1fe87eeb.mp4
-

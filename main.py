@@ -26,8 +26,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Drag & Drop AI")
         
         self.evaluation.setText(' ')
-        self.acc_widget.setBackground('w')
-        self.loss_widget.setBackground('w')
+        self.acc_widget.setBackground('k')
+        self.loss_widget.setBackground('k')
         
         self.loss_widget.setTitle("Loss vs. epochs")
         self.loss_widget.setLabel('left', "Loss")

@@ -10,13 +10,16 @@ from PyQt5.uic.properties import QtCore
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
 
-from keras.preprocessing.image import ImageDataGenerator
+
 from tensorflow.keras.optimizers import Adam
-from keras.models import Sequential
 from tensorflow.keras.applications import DenseNet121,ResNet50
+from keras.preprocessing.image import ImageDataGenerator
+from keras.models import Sequential
 from keras import layers
 
 from KerasCustomCall import CustomCallback
+import metrics
+
 
 class MainWindow(QtWidgets.QMainWindow):      
     def __init__(self):   
@@ -55,16 +58,24 @@ class MainWindow(QtWidgets.QMainWindow):
         self.height = int(self.height_txtbox.toPlainText())
         batch_size = int(self.batch_size_txtbox.toPlainText())
         
+        
         train_datagen = ImageDataGenerator(
         rescale=1 / 255.0,
         validation_split=0.20)
         test_datagen = ImageDataGenerator(rescale=1 / 255.0)
         
-        
+
+        if self.RGB.isChecked():
+            color_mode = 'rgb'
+            self.depth = 3
+        if self.Grayscale.isChecked():
+            color_mode = 'grayscale'
+            self.depth = 1
+
         self.train_generator = train_datagen .flow_from_directory(
             directory=path,
             target_size=(self.width, self.height),
-            color_mode="rgb",
+            color_mode=color_mode,
             batch_size=batch_size,
             class_mode="binary",
             subset='training',
@@ -75,7 +86,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.valid_generator = train_datagen .flow_from_directory(
             directory=path,
             target_size=(self.width, self.height),
-            color_mode="rgb",
+            color_mode=color_mode,
             batch_size=batch_size,
             class_mode="binary",
             subset='validation',
@@ -84,6 +95,7 @@ class MainWindow(QtWidgets.QMainWindow):
         )
         # Message Box
         QMessageBox.about(self, "Data Loaded successfully", f'Found {len(self.train_generator)*self.train_generator.batch_size} images belonging to {self.train_generator.num_classes} classes')
+        QMessageBox.about(self, "Data Loaded successfully", f'Found {len(self.valid_generator)*self.valid_generator.batch_size} images belonging to {self.valid_generator.num_classes} classes')
     
     def TrainThread(self):      
         t1=Thread(target=self.train)
@@ -92,10 +104,33 @@ class MainWindow(QtWidgets.QMainWindow):
         QMessageBox.about(self, "Data Loaded successfully", f"{self.model_name} Model loaded successfully!")
                   
     def train(self):
+        self.evaluate_button.setEnabled(False)
         self.model_name = self.models_comboBox.currentText()
         print(self.model_name)
-        base_model = eval(self.model_name)(weights='imagenet', include_top=False, input_shape=(self.width,self.height,3))
+        base_model = eval(self.model_name)(weights='imagenet', include_top=False, input_shape=(self.width,self.height,self.depth))
         
+        if self.binary.isChecked():
+            self.loss = 'binary_crossentropy'
+        elif self.categorical.isChecked():
+            self.loss = 'categorical_crossentropy'
+
+        self.metrics = []
+        if self.acc_metric.isChecked():
+            self.metrics.append('accuracy')
+        if self.mse_metric.isChecked():
+            self.metrics.append('mse')
+        if self.mae_metric.isChecked():
+            self.metrics.append('mae')
+
+        if self.precision_metric.isChecked():
+            self.metrics.append(metrics.precision_m)    
+        if self.recall_metric.isChecked():
+            self.metrics.append(metrics.recall_m)        
+        if self.f1_metric.isChecked():
+            self.metrics.append(metrics.f1_m)    
+
+        print(self.metrics)        
+
         # Model Building
         self.model = Sequential()
         self.model.add(base_model)
@@ -104,11 +139,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.model.add(layers.Dense(1024,activation='relu'))
         self.model.add(layers.Dense(1, activation='sigmoid'))
 
-        self.model.compile(loss='binary_crossentropy', optimizer=Adam(lr=0.001), metrics=['accuracy'])
+        
+        self.model.compile(loss=self.loss, optimizer=Adam(lr=0.001), metrics=self.metrics)
         print(self.model.summary())
         
          # Create a CustomCallback instance and pass a reference to the MainWindow instance
         self.callback = CustomCallback(main_window=self)
+
         self.textBrowser.append('Training has started......')
         self.history = self.model.fit(self.train_generator,
                                       validation_data=self.valid_generator, 

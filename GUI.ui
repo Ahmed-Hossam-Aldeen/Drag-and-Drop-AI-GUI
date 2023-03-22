@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1382</width>
-    <height>764</height>
+    <height>799</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,420 +17,545 @@
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>30</y>
-      <width>491</width>
-      <height>671</height>
+      <y>10</y>
+      <width>1341</width>
+      <height>731</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Training</string>
+    <property name="currentIndex">
+     <number>0</number>
     </property>
-    <widget class="QTextEdit" name="height_txtbox">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>50</y>
-       <width>71</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="placeholderText">
-      <string>Height</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="width_txtbox">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>50</y>
-       <width>71</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="placeholderText">
-      <string>Width</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="models_comboBox">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>190</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <property name="placeholderText">
-      <string>Choose Arch</string>
-     </property>
-     <item>
-      <property name="text">
-       <string>DenseNet121</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>ResNet50</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QPushButton" name="train_button">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>400</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Train</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>110</y>
-       <width>351</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>Drop Data path</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="batch_size_txtbox">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>50</y>
-       <width>71</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="placeholderText">
-      <string>Batch size</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="epochs_spinBox">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>400</y>
-       <width>51</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="value">
-      <number>3</number>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>400</y>
-       <width>55</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Epochs:</string>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="textBrowser">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>460</y>
-       <width>371</width>
-       <height>171</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="Grayscale">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>50</y>
-       <width>95</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Grayscale</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="RGB">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>50</y>
-       <width>61</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>RGB</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>250</y>
-       <width>55</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 8pt &quot;Rockwell Extra Bold&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Loss:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>250</y>
-       <width>71</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 8pt &quot;Rockwell Extra Bold&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Metrics:</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="binary">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>290</y>
-       <width>95</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Binary</string>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_2</string>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Training</string>
      </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>481</width>
+        <height>671</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QTextEdit" name="height_txtbox">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>50</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Height</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="width_txtbox">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>50</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Width</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="models_comboBox">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>190</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <property name="placeholderText">
+        <string>Choose Arch</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>DenseNet121</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ResNet50</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="train_button">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>400</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Train</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>110</y>
+         <width>351</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Drop Data path</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="batch_size_txtbox">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>50</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Batch size</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="epochs_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>400</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>400</y>
+         <width>55</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Epochs:</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>460</y>
+         <width>371</width>
+         <height>171</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="Grayscale">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>50</y>
+         <width>95</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Grayscale</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="RGB">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>50</y>
+         <width>61</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>RGB</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>false</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>250</y>
+         <width>55</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 81 8pt &quot;Rockwell Extra Bold&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Loss:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>250</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 81 8pt &quot;Rockwell Extra Bold&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Metrics:</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="binary">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>290</y>
+         <width>95</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Binary</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_2</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="categorical">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>320</y>
+         <width>95</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Categorical</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_2</string>
+       </attribute>
+      </widget>
+      <widget class="QCheckBox" name="acc_metric">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>290</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Accuracy</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="mse_metric">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>320</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>MSE</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="mae_metric">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>350</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>MAE</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="f1_metric">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>350</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>F1 score</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="recall_metric">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>320</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Recall</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="precision_metric">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>290</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Precision</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 81 8pt &quot;Rockwell Extra Bold&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Project Name:</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="project_name_txtbox">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>10</y>
+         <width>271</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Name</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>1060</x>
+        <y>0</y>
+        <width>241</width>
+        <height>681</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Testing</string>
+      </property>
+      <widget class="QPushButton" name="evaluate_button">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>50</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Evaluate</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="evaluation">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>100</y>
+         <width>191</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>0</y>
+        <width>531</width>
+        <height>681</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Plots</string>
+      </property>
+      <widget class="PlotWidget" name="loss_widget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>40</y>
+         <width>491</width>
+         <height>301</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="PlotWidget" name="acc_widget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>350</y>
+         <width>491</width>
+         <height>301</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
     </widget>
-    <widget class="QRadioButton" name="categorical">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>320</y>
-       <width>95</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Categorical</string>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_2</string>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tensorboard</string>
      </attribute>
-    </widget>
-    <widget class="QCheckBox" name="acc_metric">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>290</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Accuracy</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="mse_metric">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>320</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>MSE</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="mae_metric">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>350</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>MAE</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="f1_metric">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>350</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>F1 score</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="recall_metric">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>320</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Recall</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="precision_metric">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>290</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Precision</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>1110</x>
-      <y>30</y>
-      <width>241</width>
-      <height>661</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Testing</string>
-    </property>
-    <widget class="QPushButton" name="evaluate_button">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>50</y>
-       <width>151</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Evaluate</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="evaluation">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>100</y>
-       <width>191</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_3">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>30</y>
-      <width>531</width>
-      <height>671</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Plots</string>
-    </property>
-    <widget class="PlotWidget" name="loss_widget" native="true">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>40</y>
-       <width>491</width>
-       <height>301</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="PlotWidget" name="acc_widget" native="true">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>350</y>
-       <width>491</width>
-       <height>301</height>
-      </rect>
-     </property>
+     <widget class="QWebEngineView" name="widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>1291</width>
+        <height>621</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="tb_start_button">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>660</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Start Session</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="tb_end_button">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>660</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>End Session</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -453,11 +578,17 @@ p, li { white-space: pre-wrap; }
    <header>pyqtgraph</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header>PyQt5.QtWebEngineWidgets</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>

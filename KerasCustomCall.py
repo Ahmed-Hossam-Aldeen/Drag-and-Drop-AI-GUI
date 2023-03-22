@@ -1,5 +1,6 @@
 from tensorflow import keras
 import pyqtgraph as pg
+from PyQt5.QtWidgets import QApplication
 
 class CustomCallback(keras.callbacks.Callback):
     def __init__(self, main_window):
@@ -18,6 +19,7 @@ class CustomCallback(keras.callbacks.Callback):
         # self.main_window.textBrowser.append(f'Acc for epoch {epoch+1}: {round(logs["accuracy"],3)}')
         # self.main_window.textBrowser.append(f'Val Acc for epoch {epoch+1}: {round(logs["val_accuracy"],3)}')
         self.main_window.textBrowser.append(f'epoch {epoch+1}: {logs}')
+        QApplication.processEvents()  
         self.main_window.textBrowser.append('----------------------------------------')
         
         red_pen = pg.mkPen(width =2, color=(255, 0, 0))
@@ -35,3 +37,4 @@ class CustomCallback(keras.callbacks.Callback):
         
         self.main_window.acc_widget.plot(self.epochs, self.accuracy, name = "accuracy", pen=blue_pen, clear=True)
         self.main_window.acc_widget.plot(self.epochs, self.val_accuracy, name = "val_accuracy", pen=red_pen)
+  
